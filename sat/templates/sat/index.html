@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link src = "{% static 'sat/styles.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'sat/photo.jpg' %}");
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container" style="margin-top : 300px ; margin-left : 300px ;margin-right:300px ; padding-left : 250px ;background-color : white">
+        <h1>Alzheimer's Disease Prediction</h1>
+<form method="post" action="{% url 'index' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+        <label for="imageInput">Select an Image:</label>
+        <input type="file" id="imageInput" name="image" accept="image/*" style="width : 40%">
+
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+</body>
+</html>
